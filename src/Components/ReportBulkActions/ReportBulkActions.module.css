@@ -1,0 +1,49 @@
+.Atm__bulkActions {
+	background: rgba(139, 92, 246, .08);
+	border: 1px solid rgba(139, 92, 246, .2);
+	border-radius: 16px;
+	padding: 14px 18px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.Atm__bulkActions span {
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--primary);
+}
+
+.Atm__bulkButtons {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.Atm__bulkButtons button {
+	height: 38px;
+	padding: 0 14px;
+	border: none;
+	border-radius: 10px;
+	background: var(--bg-card);
+	color: var(--text-primary);
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	cursor: pointer;
+	transition: .2s;
+}
+
+.Atm__bulkButtons button:hover {
+	border-color: var(--primary);
+	background: rgba(139, 92, 246, .1);
+}
+@media(max-width:768px) {
+	.Atm__bulkActions {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}

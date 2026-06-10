@@ -1,0 +1,93 @@
+.Ar__container {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+	background: var(--bg-app);
+}
+
+.Ar__card {
+	width: 100%;
+	max-width: 460px;
+	background: var(--bg-card);
+	border: 1px solid var(--border);
+	border-radius: 24px;
+	padding: 24px;
+	box-shadow:
+		0 20px 60px rgba(0, 0, 0, .45),
+		0 0 80px rgba(139, 92, 246, .08);
+}
+
+.Ar__header {
+	margin-bottom: 24px;
+}
+
+.Ar__header h1 {
+	font-size: 28px;
+	font-weight: 700;
+	margin-bottom: 6px;
+}
+
+.Ar__header p {
+	color: var(--text-secondary);
+	font-size: 14px;
+}
+
+.Ar__form {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.Ar__passwordGrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+
+.Ar__submitButton {
+	width: 100%;
+	height: 52px;
+	border: none;
+	border-radius: 12px;
+	background: var(--primary);
+	color: #fff;
+	font-size: 16px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	cursor: pointer;
+	box-shadow:
+		0 0 20px rgba(139, 92, 246, .25);
+}
+
+.Ar__submitButton:hover {
+	background: var(--primary-hover);
+}
+
+.Ar__footer {
+	margin-top: 24px;
+	padding-top: 24px;
+	border-top: 1px solid var(--border);
+	text-align: center;
+	color: var(--text-secondary);
+	font-size: 14px;
+}
+
+.Ar__footer button {
+	background: none;
+	border: none;
+	color: var(--primary);
+	font-weight: 600;
+	cursor: pointer;
+	margin-left: 4px;
+}
+
+@media(max-width:768px) {
+	.Ar__passwordGrid {
+		grid-template-columns: 1fr;
+	}
+}

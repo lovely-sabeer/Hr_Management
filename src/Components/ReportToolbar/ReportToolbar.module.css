@@ -1,0 +1,68 @@
+.Rtb__toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	flex-wrap: wrap;
+}
+
+.Rtb__toolbarLeft {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+	flex: 1;
+}
+
+.Rtb__search {
+	width: 320px;
+	height: 44px;
+	background: var(--bg-card);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	padding: 0 14px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.Rtb__search input {
+	flex: 1;
+	background: none;
+	border: none;
+	outline: none;
+	color: var(--text-primary);
+}
+
+
+.Rtb__exportButton {
+	height: 44px;
+	padding: 0 18px;
+	border: none;
+	border-radius: 12px;
+	background: var(--primary);
+	color: #fff;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+@media(max-width:768px) {
+	.Rtb__search {
+		width: 100%;
+	}
+
+	.Rtb__dropdown {
+		width: 100%;
+	}
+
+	.Rtb__dropdownTrigger {
+		width: 100%;
+	}
+
+	.Rtb__toolbarLeft {
+		width: 100%;
+	}
+}

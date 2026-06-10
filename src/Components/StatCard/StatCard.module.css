@@ -1,0 +1,92 @@
+.Atm__statCard {
+	position: relative;
+	overflow: hidden;
+	background: var(--bg-card);
+	border: 1px solid var(--border);
+	border-radius: 20px;
+	padding: 20px;
+	min-height: 140px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	transition: .25s;
+}
+
+.Atm__statCard:hover {
+	transform: translateY(-4px);
+	border-color: rgba(139, 92, 246, .4);
+}
+
+.Atm__statGlow {
+	position: absolute;
+	top: -40px;
+	right: -40px;
+	width: 140px;
+	height: 140px;
+	border-radius: 50%;
+	background: rgba(139, 92, 246, .12);
+	filter: blur(50px);
+}
+
+.Atm__statHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	z-index: 2;
+}
+
+.Atm__statIcon {
+	width: 48px;
+	height: 48px;
+	border-radius: 14px;
+	background: rgba(139, 92, 246, .12);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--primary);
+}
+
+.Atm__statBadge {
+	padding: 6px 10px;
+	border-radius: 999px;
+	font-size: 11px;
+	font-weight: 600;
+}
+
+.Atm__badgesuccess {
+	background: rgba(34, 197, 94, .15);
+	color: var(--success);
+}
+
+.Atm__badgedanger {
+	background: rgba(239, 68, 68, .15);
+	color: var(--danger);
+}
+
+.Atm__badgewarning {
+	background: rgba(245, 158, 11, .15);
+	color: var(--warning);
+}
+
+.Atm__badgeprimary {
+	background: rgba(139, 92, 246, .15);
+	color: var(--primary);
+}
+
+.Atm__statBody {
+	position: relative;
+	z-index: 2;
+}
+
+.Atm__statBody p {
+	font-size: 13px;
+	color: var(--text-secondary);
+	margin-bottom: 10px;
+}
+
+.Atm__statBody h3 {
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 1;
+}

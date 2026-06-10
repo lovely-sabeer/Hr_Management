@@ -1,0 +1,330 @@
+.Atm__container{
+	display:flex;
+	flex-direction:column;
+	gap:20px;
+}
+
+.Atm__statGrid{
+	display:grid;
+	grid-template-columns:repeat(4,minmax(0,1fr));
+	gap:20px;
+}
+
+
+.Atm__toolbar{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	gap:20px;
+	flex-wrap:wrap;
+}
+
+.Atm__toolbarLeft{
+	display:flex;
+	align-items:center;
+	gap:12px;
+	flex-wrap:wrap;
+}
+
+.Atm__search{
+	width:320px;
+	height:44px;
+	background:var(--bg-card);
+	border:1px solid var(--border);
+	border-radius:12px;
+	padding:0 14px;
+	display:flex;
+	align-items:center;
+	gap:10px;
+	color:var(--text-secondary);
+}
+
+.Atm__search input{
+	flex:1;
+	background:none;
+	border:none;
+	outline:none;
+	color:var(--text-primary);
+	font-size:14px;
+}
+
+.Atm__search input::placeholder{
+	color:var(--text-secondary);
+}
+
+.Atm__toolbarLeft select{
+	height:44px;
+	padding:0 14px;
+	background:var(--bg-card);
+	border:1px solid var(--border);
+	border-radius:12px;
+	color:var(--text-primary);
+	outline:none;
+	min-width:160px;
+	cursor:pointer;
+}
+
+.Atm__toolbarRight{
+	display:flex;
+	align-items:center;
+	gap:12px;
+}
+
+.Atm__primaryBtn{
+	height:44px;
+	padding:0 18px;
+	border:none;
+	border-radius:12px;
+	background:var(--primary);
+	color:#fff;
+	display:flex;
+	align-items:center;
+	gap:8px;
+	font-weight:600;
+	cursor:pointer;
+	transition:.2s;
+}
+
+.Atm__primaryBtn:hover{
+	background:var(--primary-hover);
+}
+
+.Atm__secondaryBtn{
+	height:44px;
+	padding:0 18px;
+	background:var(--bg-card);
+	border:1px solid var(--border);
+	border-radius:12px;
+	color:var(--text-primary);
+	display:flex;
+	align-items:center;
+	gap:8px;
+	font-weight:600;
+	cursor:pointer;
+	transition:.2s;
+}
+
+.Atm__secondaryBtn:hover{
+	border-color:var(--primary);
+}
+
+.Atm__tableWrapper{
+	background:var(--bg-card);
+	border:1px solid var(--border);
+	border-radius:10px;
+	width:100%;
+	overflow-x:scroll;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.Atm__table{
+	width:100%;
+	border-collapse:collapse;
+}
+
+.Atm__table thead tr{
+	background:#232334;
+}
+
+.Atm__table th{
+	padding:16px;
+	text-align:left;
+	font-size:12px;
+	font-weight:600;
+	color:var(--text-secondary);
+	text-transform:uppercase;
+	border-bottom:1px solid var(--border);
+	letter-spacing:.08em;
+}
+
+.Atm__table td{
+	padding:16px;
+	border-bottom:1px solid var(--border);
+	font-size:14px;
+	color:var(--text-primary);
+}
+
+.Atm__table tbody tr{
+	transition:.2s;
+}
+
+.Atm__table tbody tr:hover{
+	background:rgba(255,255,255,.02);
+}
+
+.Atm__table input[type="checkbox"]{
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	accent-color:var(--primary);
+}
+
+.Atm__employee{
+	display:flex;
+	align-items:center;
+	gap:12px;
+}
+
+.Atm__employee img{
+	width:40px;
+	height:40px;
+	border-radius:50%;
+	object-fit:cover;
+}
+
+.Atm__employee h4{
+	font-size:14px;
+	font-weight:600;
+	margin-bottom:3px;
+}
+
+.Atm__employee p{
+	font-size:12px;
+	color:var(--text-secondary);
+}
+
+.Atm__actions{
+	display:flex;
+	align-items:center;
+	gap:6px;
+}
+
+.Atm__actions button{
+	width:34px;
+	height:34px;
+	border:none;
+	border-radius:10px;
+	background:transparent;
+	color:var(--text-secondary);
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	cursor:pointer;
+	transition:.2s;
+}
+
+.Atm__actions button:hover{
+	background:rgba(139,92,246,.1);
+	color:var(--primary);
+}
+
+.Atm__statusBadge{
+	padding:6px 12px;
+	border-radius:999px;
+	font-size:11px;
+	font-weight:700;
+	white-space:nowrap;
+}
+
+.Atm__statusPresent{
+	background:rgba(34,197,94,.15);
+	color:var(--success);
+}
+
+.Atm__statusAbsent{
+	background:rgba(239,68,68,.15);
+	color:var(--danger);
+}
+
+.Atm__statusOnLeave{
+	background:rgba(245,158,11,.15);
+	color:var(--warning);
+}
+
+.Atm__statusHalfDay{
+	background:rgba(59,130,246,.15);
+	color:#60A5FA;
+}
+
+.Atm__statusLateEntry{
+	background:rgba(139,92,246,.15);
+	color:var(--primary);
+}
+
+.Atm__pagination{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	gap:20px;
+	flex-wrap:wrap;
+}
+
+.Atm__pagination p{
+	font-size:13px;
+	color:var(--text-secondary);
+}
+
+.Atm__paginationActions{
+	display:flex;
+	align-items:center;
+	gap:8px;
+}
+
+.Atm__paginationActions button{
+	width:36px;
+	height:36px;
+	border:none;
+	border-radius:10px;
+	background:var(--bg-card);
+	border:1px solid var(--border);
+	color:var(--text-primary);
+	cursor:pointer;
+	transition:.2s;
+}
+
+.Atm__paginationActions button:hover{
+	border-color:var(--primary);
+}
+
+.Atm__pageActive{
+	background:var(--primary) !important;
+	border-color:var(--primary) !important;
+	color:#fff !important;
+}
+
+@media(max-width:1200px){
+	.Atm__statGrid{
+		grid-template-columns:repeat(2,minmax(0,1fr));
+	}
+}
+
+@media(max-width:768px){
+	.Atm__statGrid{
+		grid-template-columns:1fr;
+	}
+
+	.Atm__toolbar{
+		flex-direction:column;
+		align-items:stretch;
+	}
+
+	.Atm__toolbarLeft{
+		flex-direction:column;
+		align-items:stretch;
+	}
+
+	.Atm__toolbarRight{
+		width:100%;
+	}
+
+	.Atm__toolbarRight button{
+		flex:1;
+	}
+
+	.Atm__search{
+		width:100%;
+	}
+
+	.Atm__toolbarLeft select{
+		width:100%;
+	}
+
+	.Atm__pagination{
+		flex-direction:column;
+		align-items:flex-start;
+	}
+}

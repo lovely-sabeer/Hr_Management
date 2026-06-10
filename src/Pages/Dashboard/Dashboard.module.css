@@ -1,0 +1,42 @@
+.El__container {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.El__analyticsGrid {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 20px;
+}
+.El__statGrid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 20px;
+}
+.El__chartCard {
+	background: var(--bg-card);
+	border: 1px solid var(--border);
+	border-radius: 20px;
+	padding: 24px;
+}
+
+.El__chartHeader {
+	margin-bottom: 20px;
+}
+
+.El__chartHeader h3 {
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 6px;
+}
+
+.El__chartHeader p {
+	color: var(--text-secondary);
+	font-size: 14px;
+}
+
+@media(max-width:1024px) {
+	.El__analyticsGrid {
+		grid-template-columns: 1fr;
+	}
+}

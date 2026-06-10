@@ -1,0 +1,131 @@
+.Aem__overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, .75);
+	backdrop-filter: blur(12px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+	z-index: 999;
+}
+
+.Aem__modal {
+	width: 100%;
+	max-width: 760px;
+	background: #1E1E2D;
+	border: 1px solid #2A2A3A;
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow:
+		0 20px 60px rgba(0, 0, 0, .55),
+		0 0 80px rgba(139, 92, 246, .08);
+}
+
+.Aem__header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	padding: 24px 28px;
+	border-bottom: 1px solid #2A2A3A;
+}
+
+.Aem__header h2 {
+	font-size: 24px;
+	font-weight: 700;
+	margin-bottom: 4px;
+	color: #fff;
+}
+
+.Aem__header p {
+	font-size: 13px;
+	color: #B4B4C7;
+}
+
+.Aem__closeButton {
+	width: 36px;
+	height: 36px;
+	border: none;
+	background: transparent;
+	color: #B4B4C7;
+	cursor: pointer;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Aem__closeButton:hover {
+	background: #26263A;
+	color: #fff;
+}
+
+.Aem__body {
+	padding: 24px 28px;
+}
+
+.Aem__grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 22px 20px;
+}
+
+.Aem__fullWidth {
+	grid-column: 1 / -1;
+}
+
+.Aem__footer {
+	padding: 18px 28px;
+	border-top: 1px solid #2A2A3A;
+	display: flex;
+	justify-content: flex-end;
+	gap: 12px;
+	background: #1A1A28;
+}
+
+.Aem__cancelButton {
+	height: 42px;
+	padding: 0 20px;
+	border-radius: 12px;
+	border: 1px solid #2A2A3A;
+	background: transparent;
+	color: #B4B4C7;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.Aem__cancelButton:hover {
+	background: #252538;
+}
+
+.Aem__saveButton {
+	height: 42px;
+	padding: 0 24px;
+	border: none;
+	border-radius: 12px;
+	background: #A78BFA;
+	color: #fff;
+	font-weight: 600;
+	cursor: pointer;
+	box-shadow:
+		0 0 20px rgba(167, 139, 250, .35),
+		0 0 40px rgba(167, 139, 250, .15);
+}
+
+.Aem__saveButton:hover {
+	background: #8B5CF6;
+}
+
+@media(max-width:768px) {
+	.Aem__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.Aem__footer {
+		flex-direction: column-reverse;
+	}
+
+	.Aem__footer button {
+		width: 100%;
+	}
+}

@@ -1,0 +1,167 @@
+.Aal__sidebar {
+	width: 200px;
+	background: var(--bg-sidebar);
+	border-right: 1px solid var(--border);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	z-index: 100;
+	transition: 0.25s;
+}
+
+.Aal__sidebarCollapsed {
+	width: 88px;
+}
+
+.Aal__brand {
+	height: 56px;
+	display: flex;
+	align-items: center;
+	padding: 0 20px;
+	gap: 12px;
+	border-top: 1px solid var(--border);
+	border-bottom: 1px solid var(--border);
+}
+
+.Aal__brand h2 {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.Aal__profile {
+	padding: 20px;
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
+	border-bottom: 1px solid var(--border);
+}
+
+.Aal__profile img {
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.Aal__profile h4 {
+	font-size: 14px;
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+.Aal__profile p {
+	font-size: 12px;
+	color: var(--text-secondary);
+	margin-bottom: 6px;
+}
+
+.Aal__profile span {
+	background: rgba(139, 92, 246, 0.15);
+	color: var(--primary);
+	padding: 4px 8px;
+	border-radius: 8px;
+	font-size: 11px;
+	font-weight: 600;
+}
+
+.Aal__nav {
+	flex: 1;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.Aal__navItem {
+	height: 48px;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	border-radius: 12px;
+	text-decoration: none;
+	color: var(--text-secondary);
+	transition: 0.2s;
+}
+
+.Aal__navItem:hover {
+	background: rgba(255, 255, 255, 0.04);
+	color: #fff;
+}
+
+.Aal__navItemActive {
+	background: rgba(139, 92, 246, 0.12);
+	color: var(--primary);
+}
+
+.Aal__bottom {
+	padding: 16px;
+	border-top: 1px solid var(--border);
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.Aal__collapseBtn,
+.Aal__logoutBtn {
+	height: 44px;
+	border: none;
+	background: transparent;
+	color: var(--text-secondary);
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	border-radius: 12px;
+	padding: 0 14px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.Aal__collapseBtn:hover,
+.Aal__logoutBtn:hover {
+	background: rgba(255, 255, 255, 0.04);
+	color: #fff;
+}
+
+
+.Aal__overlayShow {
+	opacity: 1;
+	visibility: visible;
+}
+
+@media (max-width: 1199px) {
+	.Aal__sidebar {
+		width: 88px;
+	}
+
+	.Aal__contentWrapper {
+		margin-left: 88px;
+	}
+}
+
+@media (max-width: 767px) {
+	.Aal__menuBtn {
+		display: flex;
+	}
+
+	.Aal__sidebar {
+		width: 200px;
+		transform: translateX(-100%);
+	}
+
+	.Aal__sidebarMobileOpen {
+		transform: translateX(0);
+	}
+
+	.Aal__contentWrapper,
+	.Aal__contentWrapperCollapsed {
+		margin-left: 0;
+	}
+
+	.Aal__user div {
+		display: none;
+	}
+}
