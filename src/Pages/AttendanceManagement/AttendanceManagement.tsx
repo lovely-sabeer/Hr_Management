@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, X, Clock3, Users, UserCheck, UserX, Plane, type LucideIcon, } from "lucide-react";
+import { Check, X, Clock3, Plane } from "lucide-react";
 import styles from "./AttendanceManagement.module.css";
 import StatCard from "../../Components/StatCard/StatCard";
 import ReportTable from "../../Components/ReportTable/ReportTable";
@@ -74,7 +74,7 @@ const AttendanceManagement = () => {
 			attendanceTableConfig.rows.map((row) => row.id)
 		);
 	};
-
+	
 	const handleActionClick = (
 		action: string,
 		row: any
@@ -100,12 +100,12 @@ const AttendanceManagement = () => {
 					/>
 				))}
             </div>
-			<ReportToolbar
+			{/* <ReportToolbar
 				config={toolbarConfig}
 				searchValue={search}
 				onSearchChange={setSearch}
 				onExport={() => console.log("export")}
-			/>
+			/> */}
             <ReportBulkActions buttons={buttons} selectedCount={selectedRows.length} />
 			<ReportTable
 				config={attendanceTableConfig}

@@ -1,5 +1,6 @@
 import { Edit, Trash2 } from "lucide-react";
 import type { ReportTableConfig } from "../Components/ReportTable/ReportTable";
+import { getEmployeeList } from "./api";
 
 export const attendanceTableConfig: ReportTableConfig  = {
 	selectable: true,
@@ -210,62 +211,72 @@ export const employeeTableConfig: ReportTableConfig = {
 		},
 	],
 
-	rows: [
-		{
-			id: 1,
-			employeeId: "#EMP-2041",
-			name: "Sarah Miller",
-			email: "sarah.m@company.com",
-			department: "Engineering",
-		},
-		{
-			id: 2,
-			employeeId: "#EMP-2042",
-			name: "James Wilson",
-			email: "james.w@company.com",
-			department: "Design",
-		},
-		{
-			id: 3,
-			employeeId: "#EMP-2043",
-			name: "Anita Kumar",
-			email: "anita.k@company.com",
-			department: "Marketing",
-		},
-		{
-			id: 4,
-			employeeId: "#EMP-2044",
-			name: "Robert Lee",
-			email: "robert.l@company.com",
-			department: "Engineering",
-		},
-		{
-			id: 5,
-			employeeId: "#EMP-2045",
-			name: "Emily Watson",
-			email: "emily.w@company.com",
-			department: "HR",
-		},
-		{
-			id: 6,
-			employeeId: "#EMP-2046",
-			name: "Michael Brown",
-			email: "michael.b@company.com",
-			department: "Finance",
-		},
-		{
-			id: 7,
-			employeeId: "#EMP-2047",
-			name: "Sophia Davis",
-			email: "sophia.d@company.com",
-			department: "Engineering",
-		},
-		{
-			id: 8,
-			employeeId: "#EMP-2048",
-			name: "Daniel Garcia",
-			email: "daniel.g@company.com",
-			department: "Marketing",
-		},
-	],
+	rows:[]
+	// 	async () => {
+	// 	const result = await getEmployeeList({ status:"", page:"", pageSize:1, search:10 });
+	// 	return (result.data?.data || []).map((employee: any) => ({
+	// 		"id": employee.id,
+	// 		"name": employee.fullName,
+	// 		"role": employee.roleName,
+	// 		"status": employee.status,
+	// 	}));
+	// }
+	// 	[
+	// 	{
+	// 		id: 1,
+	// 		employeeId: "#EMP-2041",
+	// 		name: "Sarah Miller",
+	// 		email: "sarah.m@company.com",
+	// 		department: "Engineering",
+	// 	},
+	// 	{
+	// 		id: 2,
+	// 		employeeId: "#EMP-2042",
+	// 		name: "James Wilson",
+	// 		email: "james.w@company.com",
+	// 		department: "Design",
+	// 	},
+	// 	{
+	// 		id: 3,
+	// 		employeeId: "#EMP-2043",
+	// 		name: "Anita Kumar",
+	// 		email: "anita.k@company.com",
+	// 		department: "Marketing",
+	// 	},
+	// 	{
+	// 		id: 4,
+	// 		employeeId: "#EMP-2044",
+	// 		name: "Robert Lee",
+	// 		email: "robert.l@company.com",
+	// 		department: "Engineering",
+	// 	},
+	// 	{
+	// 		id: 5,
+	// 		employeeId: "#EMP-2045",
+	// 		name: "Emily Watson",
+	// 		email: "emily.w@company.com",
+	// 		department: "HR",
+	// 	},
+	// 	{
+	// 		id: 6,
+	// 		employeeId: "#EMP-2046",
+	// 		name: "Michael Brown",
+	// 		email: "michael.b@company.com",
+	// 		department: "Finance",
+	// 	},
+	// 	{
+	// 		id: 7,
+	// 		employeeId: "#EMP-2047",
+	// 		name: "Sophia Davis",
+	// 		email: "sophia.d@company.com",
+	// 		department: "Engineering",
+	// 	},
+	// 	{
+	// 		id: 8,
+	// 		employeeId: "#EMP-2048",
+	// 		name: "Daniel Garcia",
+	// 		email: "daniel.g@company.com",
+	// 		department: "Marketing",
+	// 	},
+	// ],
 };

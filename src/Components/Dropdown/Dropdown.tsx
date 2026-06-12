@@ -1,7 +1,6 @@
 import { useState } from "react";
-import styles from "./Dropdown.module.css"
+import styles from "./Dropdown.module.css";
 import { ChevronDown } from "lucide-react";
-
 
 type RtbDropdownOption = {
 	value: string;
@@ -12,12 +11,14 @@ type RtbDropdownProps = {
 	options: RtbDropdownOption[];
 	value: string;
 	onChange: (value: string) => void;
+	disabled?: boolean;
 };
 
 const Dropdown = ({
 	options,
 	value,
 	onChange,
+	disabled = false
 }: RtbDropdownProps) => {
 	const [open, setOpen] = useState(false);
 
@@ -26,13 +27,18 @@ const Dropdown = ({
 		options[0];
 
 	return (
-		<div className={styles.Rtb__dropdown}>
-			<button className={styles.Rtb__dropdownTrigger} onClick={() => setOpen(prev => !prev)} type="button">
-				<span>{selected.label}</span>
+		<div className={`${styles.Rtb__dropdown} ${disabled ? styles.Rtb__dropdownDisabled : ""}`}>
+			<button 
+				className={styles.Rtb__dropdownTrigger} 
+				onClick={() => !disabled && setOpen(prev => !prev)} 
+				type="button"
+				disabled={disabled}
+			>
+				<span>{selected?.label || ""}</span>
 				<ChevronDown size={16} />
 			</button>
 
-			{open && (
+			{open && !disabled && (
 				<div className={styles.Rtb__dropdownMenu}>
 					{options.map(option => (
 						<div
@@ -55,4 +61,5 @@ const Dropdown = ({
 		</div>
 	);
 };
+
 export default Dropdown;

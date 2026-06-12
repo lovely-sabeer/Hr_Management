@@ -16,7 +16,7 @@ const ReportBulkActions = ({ selectedCount, buttons }: { selectedCount: number, 
 					buttons.map((item: Button, index: number) => {
 						const Icon = item.icon;
 						return (
-							<button key={index}>
+							<button key={index} onClick={()=>item.handleClick()}>
 								<Icon size={14} />
 								{item.name}
 							</button>

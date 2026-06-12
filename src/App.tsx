@@ -1,44 +1,44 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-import AppLayout from "./Components/AppLayout/AppLayout";
+import { WebLayout, AppLayout, PublicRoute, ProtectedRoute } from "./Components/AppLayout/AppLayout";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+
+import Login from "./Pages/Login/Login";
+import SignUp from "./Pages/SignUp/SignUp";
+
+import Dashboard from "./Pages/Dashboard/Dashboard";
 import AttendanceManagement from "./Pages/AttendanceManagement/AttendanceManagement";
 import SalaryManagement from "./Pages/SalaryManagement/SalaryManagement";
 import EmployeeList from "./Pages/EmployeeList/EmployeeList";
-import Dashboard from "./Pages/Dashboard/Dashboard";
-import AddNewEmployee from "./Pages/AddNewEmployee/AddNewEmployee";
-import SignUp from "./Pages/SignUp/SignUp";
-import Login from "./Pages/Login/Login";
+// import AddNewEmployee from "./Pages/AddNewEmployee/AddNewEmployee";
 
 function App() {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/">
-                    {/* <Route path="/" element={<WebLayout />}>
-							<Route index element={<Navigate to="web" replace />} />
-							<Route path="web" element={<LandingPage />} />
-							<Route path="login" element={<Login />} />
-							<Route path="signup" element={<Signup />} />
-							<Route path="forgot-password" element={<ForgotPassword />} />
-						</Route> 
-					*/}
-                    <Route path="/app" element={<AppLayout />}>
-                        <Route
-                            index
-                            element={<Navigate to="dashboard" replace />}
-                        />
-                        {/* <Route path="dashboard" element={<AttendanceManagement />} /> */}
-                        {/* <Route path="dashboard" element={<SalaryManagement />} /> */}
-                        {/* <Route path="dashboard" element={<EmployeeList />} /> */}
-                        {/* <Route path="dashboard" element={<Dashboard />} /> */}
-                        {/* <Route path="dashboard" element={<AddNewEmployee />} /> */}
-                        {/* <Route path="dashboard" element={<SignUp />} /> */}
-                        <Route path="dashboard" element={<Login />} />
-                    </Route>
-                </Route>
-            </Routes>
-        </BrowserRouter>
-    );
+	return (
+		<BrowserRouter>
+			<Routes>
+				{/* Public Routes */}
+				<Route element={<PublicRoute />}>
+					<Route element={<WebLayout />}>
+						<Route path="/" element={<Navigate to="/login" replace />}/>
+						<Route path="/login" element={<Login />}/>
+						<Route path="/signup" element={<SignUp />}/>
+					</Route>
+				</Route>
+
+				{/* Protected Routes */}
+				<Route element={<ProtectedRoute />}>
+					<Route element={<AppLayout />}>
+						<Route path="/app" element={<Navigate to="/app/dashboard" replace />} />
+						<Route path="/app/dashboard" element={<Dashboard />} />
+						<Route path="/app/employees" element={<EmployeeList />} />
+						<Route path="/app/attendance" element={<AttendanceManagement />} />
+						<Route path="/app/salary" element={<SalaryManagement />} />
+						{/* <Route path="/app/add-employee" element={<AddNewEmployee />} /> */}
+					</Route>
+				</Route>
+
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;

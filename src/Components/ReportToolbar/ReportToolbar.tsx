@@ -1,18 +1,21 @@
-import { useState } from "react";
-import styles from "./ReportToolbar.module.css"
-import { Search, Download, ChevronDown, } from "lucide-react";
+import styles from "./ReportToolbar.module.css";
+import { Search, Download } from "lucide-react";
 import Dropdown from "../Dropdown/Dropdown";
+
+type DropdownOption = {
+	value: string;
+	label: string;
+};
 
 type RtbToolbarProps = {
 	config: {
 		searchPlaceholder: string;
 		exportLabel: string;
-		dropdowns: {
-			value: string;
-			label: string;
-		}[][];
+		dropdowns: DropdownOption[][];
 	};
 	searchValue: string;
+	dropdownValues: string[];
+	setDropdownValues: React.Dispatch<React.SetStateAction<string[]>>;
 	onSearchChange: (value: string) => void;
 	onExport: () => void;
 };
@@ -22,22 +25,20 @@ const ReportToolbar = ({
 	searchValue,
 	onSearchChange,
 	onExport,
+	dropdownValues,
+	setDropdownValues
 }: RtbToolbarProps) => {
-	const [dropdownValues, setDropdownValues] = useState(
-		config.dropdowns.map(item => item[0]?.value ?? "")
-	);
 
-	const updateDropdown = (
-		index: number,
-		value: string
-	) => {
-		setDropdownValues(prev =>
-			prev.map((item, idx) =>
-				idx === index ? value : item
-			)
-		);
+	const updateDropdown = (index: number, value: string) => {
+		setDropdownValues(prev => {
+			const nextValues = [...prev];
+			while (nextValues.length < config.dropdowns.length) {
+				nextValues.push("");
+			}
+			nextValues[index] = value;
+			return nextValues;
+		});
 	};
-
 	return (
 		<div className={styles.Rtb__toolbar}>
 			<div className={styles.Rtb__toolbarLeft}>
@@ -45,32 +46,19 @@ const ReportToolbar = ({
 					<Search size={18} />
 					<input
 						value={searchValue}
-						onChange={e =>
-							onSearchChange(e.target.value)
-						}
-						placeholder={
-							config.searchPlaceholder
-						}
+						onChange={e => onSearchChange(e.target.value)}
+						placeholder={config.searchPlaceholder}
 					/>
 				</div>
 
-				{config.dropdowns.map(
-					(options, index) => (
-						<Dropdown
-							key={index}
-							options={options}
-							value={
-								dropdownValues[index]
-							}
-							onChange={(value:any) =>
-								updateDropdown(
-									index,
-									value
-								)
-							}
-						/>
-					)
-				)}
+				{config.dropdowns.map((options, index) => (
+					<Dropdown
+						key={index}
+						options={options}
+						value={dropdownValues[index] || ""}
+						onChange={(value: string) => updateDropdown(index, value)}
+					/>
+				))}
 			</div>
 
 			<button className={styles.Rtb__exportButton} onClick={onExport}>

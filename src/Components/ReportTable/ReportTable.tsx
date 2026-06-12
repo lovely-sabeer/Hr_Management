@@ -37,6 +37,7 @@ type ReportTableProps = {
 	onSelectRow?: (id: number) => void;
 	onSelectAll?: () => void;
 	onActionClick?: (action: string, row: any) => void;
+	onRowClick?: (row: any) => void;
 };
 
 const CellRenderer = ({
@@ -129,6 +130,7 @@ const ReportTable = ({
 	onSelectRow,
 	onSelectAll,
 	onActionClick,
+	onRowClick
 }: ReportTableProps) => {
 	return (
 		<div className={styles.Rpt__wrapper}>
@@ -163,7 +165,7 @@ const ReportTable = ({
 
 					<tbody>
 						{config.rows.map((row) => (
-							<tr key={row.id}>
+							<tr key={row.id} onClick={()=>onRowClick?.(row)}>
 								{config.selectable && (
 									<td>
 										<input

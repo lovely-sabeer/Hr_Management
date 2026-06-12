@@ -85,6 +85,12 @@
 	cursor: pointer;
 	margin-left: 4px;
 }
+.ArError {
+	margin-top: 4px;
+	font-size: 12px;
+	line-height: 1.3;
+	color: #ff4d4f;
+}
 
 @media(max-width:768px) {
 	.Ar__passwordGrid {

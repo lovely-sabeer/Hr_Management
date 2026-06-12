@@ -48,12 +48,12 @@ const SalaryManagement = () => {
 
 	return (
 		<div className={styles.Slm__container}>
-			<ReportToolbar
+			{/* <ReportToolbar
 				config={salaryToolbarData}
 				searchValue={search}
 				onSearchChange={setSearch}
 				onExport={() => {}}
-			/>
+			/> */}
 
 			<ReportBulkActions
 				buttons={salaryBulkButtons}

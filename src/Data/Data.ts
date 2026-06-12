@@ -74,34 +74,15 @@ export const salaryBulkButtons = [
 export const employeeToolbarData = {
 	searchPlaceholder: "Search employees...",
 	exportLabel: "CSV Export",
-
 	dropdowns: [
 		[
-			{ value: "all", label: "All Departments" },
-			{ value: "engineering", label: "Engineering" },
-			{ value: "design", label: "Design" },
-			{ value: "marketing", label: "Marketing" },
-			{ value: "hr", label: "Human Resources" },
+			{ value: "all", label: "All" },
+			{ value: "Engineering", label: "Engineering" },
+			{ value: "Design", label: "Design" },
+			{ value: "Marketing", label: "Marketing" },
 		],
 	],
 };
-function handleAddEmployee() {}
-
-function handleDeleteEmployees() {}
-
-export const employeeBulkButtons = [
-	{
-		name: "Delete Selected",
-		icon: Trash2,
-		handleClick: handleDeleteEmployees,
-	},
-	{
-		name: "Add Employee",
-		icon: Plus,
-		handleClick: handleAddEmployee,
-	},
-];
-
 
 export const attendanceStats = [
     {
