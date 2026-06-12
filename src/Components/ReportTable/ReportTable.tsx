@@ -53,16 +53,8 @@ const CellRenderer = ({
 		case "employee":
 			return (
 				<div className={styles.Rpt__employee}>
-					{row.avatar && (
-						<img
-							src={row.avatar}
-							alt={row.name}
-						/>
-					)}
-
 					<div>
 						<h4>{row.name}</h4>
-						<p>{row.email}</p>
 					</div>
 				</div>
 			);
@@ -171,7 +163,8 @@ const ReportTable = ({
 										<input
 											type="checkbox"
 											checked={selectedRows.includes(row.id)}
-											onChange={() => onSelectRow?.(row.id)}
+											onChange={() => { onSelectRow?.(row.id) }}
+											onClick={(e)=>e.stopPropagation()}
 										/>
 									</td>
 								)}
@@ -195,11 +188,10 @@ const ReportTable = ({
 												return (
 													<button
 														key={action.action}
-														onClick={() =>
-															onActionClick?.(
-																action.action,
-																row
-															)
+														onClick={(e) => {
+															e.stopPropagation(); 
+															onActionClick?.(action.action, row);
+														}
 														}
 													>
 														<Icon size={16} />

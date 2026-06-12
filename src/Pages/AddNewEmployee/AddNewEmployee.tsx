@@ -3,9 +3,10 @@ import { X } from "lucide-react";
 import styles from "./AddNewEmployee.module.css";
 import InputField from "../../Components/InputField/InputField";
 import Dropdown from "../../Components/Dropdown/Dropdown";
-import { createEmployee } from "../../Data/api";
+import { createEmployee, updateEmployee } from "../../Data/api";
 
 interface EmployeeFormData {
+	id: string,
 	firstName: string;
 	lastName: string;
 	email: string;
@@ -44,14 +45,14 @@ export default function AddNewEmployee({
 	initialData = null,
 	onRefresh
 }: AddNewEmployeeProps): JSX.Element {
-	
 	if (!isOpen) return <></>;
-
+	console.log(initialData);
 	const isViewOnly = forUpdate === false;
 	const isUpdateMode = forUpdate === true;
 	const isCreateMode = forUpdate === null;
 
 	const [formData, setFormData] = useState<EmployeeFormData>({
+		id:"",
 		firstName: "",
 		lastName: "",
 		email: "",
@@ -74,6 +75,7 @@ export default function AddNewEmployee({
 			}));
 		} else if (isCreateMode) {
 			setFormData({
+				id:"",
 				firstName: "",
 				lastName: "",
 				email: "",
@@ -149,9 +151,11 @@ export default function AddNewEmployee({
 					setIsOpen(false);
 				}
 			} else if (isUpdateMode) {
-				console.log("Execute update API request with:", collectedData);
-				onRefresh?.();
-				setIsOpen(false);
+				const result = await updateEmployee({ id:formData.id, body:collectedData });
+				if (result.data.success) {
+					onRefresh?.();
+					setIsOpen(false);
+				}
 			}
 		} catch (error) {
 			console.error("Form Submission Error:", error);
@@ -233,6 +237,7 @@ export default function AddNewEmployee({
 
 						<div>
 							<Dropdown
+								label="Gender"
 								value={formData.gender}
 								options={[
 									{ value: "male", label: "Male" },
@@ -259,6 +264,7 @@ export default function AddNewEmployee({
 
 						<div>
 							<Dropdown
+								label="Department"
 								value={formData.department}
 								options={[
 									{ value: "Engineering", label: "Engineering" },

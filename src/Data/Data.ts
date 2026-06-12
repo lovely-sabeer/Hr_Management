@@ -1,4 +1,4 @@
-import { CalendarClock, CalendarDays, FileText, LayoutDashboard, Settings, Users, Wallet, Check, X, Trash2, Plus, UserPlus, UserCheck, Plane, UserX  } from "lucide-react";
+import {Users, Wallet, UserPlus, UserCheck, } from "lucide-react";
 
 export const sidebarData = [
 	{
@@ -24,52 +24,39 @@ export const sidebarData = [
 	},
 ];
 
-const navigationItems = [
-    { id: "dashboard", label: "Dashboard", icon: LayoutDashboard, path: "/" },
-    { id: "employee", label: "Employees", icon: Users, path: "/employees" },
-    { id: "attendance", label: "Attendance", icon: CalendarDays, path: "/attendance", },
-    { id: "leave", label: "Leave", icon: CalendarClock, path: "/leave" },
-    { id: "salary", label: "Salary", icon: Wallet, path: "/salary" },
-    { id: "reports", label: "Reports", icon: FileText, path: "/reports" },
-    { id: "settings", label: "Settings", icon: Settings, path: "/settings" },
-];
-
-// 2nd
-
-function handleMarkPaid() {}
-
-function handleMarkUnpaid() {}
-
 export const salaryToolbarData = {
 	searchPlaceholder: "Search employee ID or name...",
 	exportLabel: "Export CSV",
 
 	dropdowns: [
 		[
-			{ value: "all", label: "All Status" },
-			{ value: "paid", label: "Paid" },
-			{ value: "unpaid", label: "Unpaid" },
+			{ value: "all", label: "All" },
+			{ value: "Engineering", label: "Engineering" },
+			{ value: "Design", label: "Design" },
+			{ value: "Marketing", label: "Marketing" },
 		],
 		[
-			{ value: "oct2023", label: "October 2023" },
-			{ value: "sep2023", label: "September 2023" },
-			{ value: "aug2023", label: "August 2023" },
+			{ value: "2023", label: "2023" },
+			{ value: "2024", label: "2024" },
+			{ value: "2025", label: "2025" },
+			{ value: "2026", label: "2026" },
+		],
+		[
+			{ value: "1", label: "January" },
+			{ value: "2", label: "Febrary" },
+			{ value: "3", label: "March" },
+			{ value: "4", label: "April" },
+			{ value: "5", label: "May" },
+			{ value: "6", label: "June" },
+			{ value: "7", label: "July" },
+			{ value: "8", label: "Augest" },
+			{ value: "9", label: "September" },
+			{ value: "10", label: "October" },
+			{ value: "11", label: "November" },
+			{ value: "12", label: "December" },
 		],
 	],
 };
-
-export const salaryBulkButtons = [
-	{
-		name: "Mark Paid",
-		icon: Check,
-		handleClick: handleMarkPaid,
-	},
-	{
-		name: "Mark Unpaid",
-		icon: X,
-		handleClick: handleMarkUnpaid,
-	},
-];
 
 export const employeeToolbarData = {
 	searchPlaceholder: "Search employees...",
@@ -83,41 +70,6 @@ export const employeeToolbarData = {
 		],
 	],
 };
-
-export const attendanceStats = [
-    {
-        id: 1,
-        title: "Total Employees",
-        value: "1,248",
-        change: "+2.4%",
-        changeType: "success",
-        icon: Users,
-    },
-    {
-        id: 2,
-        title: "Present Today",
-        value: "1,148",
-        change: "92%",
-        changeType: "success",
-        icon: UserCheck,
-    },
-    {
-        id: 3,
-        title: "Absent Today",
-        value: "52",
-        change: "4.2%",
-        changeType: "danger",
-        icon: UserX,
-    },
-    {
-        id: 4,
-        title: "On Leave",
-        value: "48",
-        change: "Active",
-        changeType: "warning",
-        icon: Plane,
-    },
-];
 
 export const employeeStats = [
 	{

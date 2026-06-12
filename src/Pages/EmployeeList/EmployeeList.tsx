@@ -5,9 +5,9 @@ import ReportBulkActions from "../../Components/ReportBulkActions/ReportBulkActi
 import ReportTable from "../../Components/ReportTable/ReportTable";
 import { employeeToolbarData } from "../../Data/Data";
 import { employeeTableConfig } from "../../Data/TableData";
-import { exportEmployee, getEmployeeList, deleteEmployees } from "../../Data/api";
+import { exportEmployee, getEmployeeList, deleteEmployees, getEmployeeById, markAttendance } from "../../Data/api";
 import AddNewEmployee from "../AddNewEmployee/AddNewEmployee";
-import { Trash2 } from "lucide-react";
+import { Check, Clock3, Trash2, X } from "lucide-react";
 
 const EmployeeList = () => {
 	const [search, setSearch] = useState("");
@@ -28,8 +28,9 @@ const EmployeeList = () => {
 				: [...prev, id]
 		);
 	};
-	const onRowClick = (row: any) => {
-		setViewData(row);
+	const onRowClick = async (row: any) => {
+		const result = await getEmployeeById(row.id);
+		setViewData(result.data);
 		setOpenFor("view");
 		setIsOpen(true);
 	}
@@ -56,6 +57,10 @@ const EmployeeList = () => {
 		switch (action) {
 			case "edit":
 				console.log("Edit Employee", row);
+				const result = await getEmployeeById(row.id);
+				setViewData(result.data);
+				setOpenFor("update");
+				setIsOpen(true);
 				break;
 			case "delete":
 				try {
@@ -70,7 +75,14 @@ const EmployeeList = () => {
 				break;
 		}
 	};
-	
+	function handleattendance(act:string) {
+		markAttendance({
+			employeeIds: selectedRows,
+			status: act,
+		});
+		setSelectedRows([]);
+		setRefreshTrigger(prev => !prev);
+	}
 	const employeeBulkButtons = [
 		{
 			name: "Delete",
@@ -86,6 +98,9 @@ const EmployeeList = () => {
 				}
 			},
 		},
+		{name:"Present", icon: Check, handleClick:()=>handleattendance("Present")},
+		{name:"Absent", icon: X, handleClick:()=>handleattendance("Absent")},
+		{name:"Half Day", icon: Clock3, handleClick:()=>handleattendance("HalfDay")},
 	];
 
 	useEffect(() => {
@@ -122,7 +137,7 @@ const EmployeeList = () => {
 		<div className={styles.El__container}>
 			<div className={styles.header} style={{display:"flex", justifyContent:"space-between"}}>
 				<h3>New Page</h3>
-				<button onClick={() => { setIsOpen(true);  setOpenFor("create")}}>Add New User</button>
+				<button className={styles.El__Button} onClick={() => { setIsOpen(true);  setOpenFor("create")}}>Add New User</button>
 			</div>
 			<ReportToolbar
 				config={employeeToolbarData}
@@ -157,3 +172,5 @@ const EmployeeList = () => {
 };
 
 export default EmployeeList;
+
+

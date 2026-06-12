@@ -8,6 +8,7 @@ type RtbDropdownOption = {
 };
 
 type RtbDropdownProps = {
+	label?: string,
 	options: RtbDropdownOption[];
 	value: string;
 	onChange: (value: string) => void;
@@ -15,6 +16,7 @@ type RtbDropdownProps = {
 };
 
 const Dropdown = ({
+	label,
 	options,
 	value,
 	onChange,
@@ -28,6 +30,13 @@ const Dropdown = ({
 
 	return (
 		<div className={`${styles.Rtb__dropdown} ${disabled ? styles.Rtb__dropdownDisabled : ""}`}>
+			{
+				label && (
+					<label className={styles.If__label}>
+						{label}
+					</label>
+				)
+			}
 			<button 
 				className={styles.Rtb__dropdownTrigger} 
 				onClick={() => !disabled && setOpen(prev => !prev)} 

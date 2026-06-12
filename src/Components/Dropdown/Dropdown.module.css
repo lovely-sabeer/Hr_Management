@@ -1,12 +1,20 @@
 .Rtb__dropdown {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 	position: relative;
 }
-
+.If__label {
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--text-secondary);
+	padding-left: 2px;
+}
 .Rtb__dropdownTrigger {
 	height: 44px;
 	min-width: 180px;
 	padding: 0 14px;
-	background: var(--bg-card);
+	background: var(--bg-app);
 	border: 1px solid var(--border);
 	border-radius: 12px;
 	color: var(--text-primary);

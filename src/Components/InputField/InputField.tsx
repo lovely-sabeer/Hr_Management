@@ -27,8 +27,7 @@ const InputField = ({
 		<div className={styles.If__field}>
 			<label
 				htmlFor={name}
-				className={styles.If__label}
-			>
+				className={styles.If__label}>
 				{label}
 			</label>
 
