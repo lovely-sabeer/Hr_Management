@@ -1,4 +1,4 @@
-import { Bell, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import styles from "./Topbar.module.css"
 
 const profileData = {

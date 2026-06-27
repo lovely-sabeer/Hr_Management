@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import styles from "./Sidebar.module.css"
-import { CalendarClock, CalendarDays, FileText, LayoutDashboard, LogOut, Settings, Users, Wallet } from "lucide-react";
+import { CalendarDays, LayoutDashboard, LogOut, Users, Wallet } from "lucide-react";
 
 
 const navigationItems = [
