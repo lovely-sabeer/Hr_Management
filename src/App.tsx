@@ -11,9 +11,12 @@ import SalaryManagement from "./Pages/SalaryManagement/SalaryManagement";
 import EmployeeList from "./Pages/EmployeeList/EmployeeList";
 // import AddNewEmployee from "./Pages/AddNewEmployee/AddNewEmployee";
 
+import { Analytics } from '@vercel/analytics/react';
+
 function App() {
 	return (
 		<BrowserRouter>
+			<Analytics />
 			<Routes>
 				{/* Public Routes */}
 				<Route element={<PublicRoute />}>
