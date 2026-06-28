@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const Base_Url =
-	"https://localhost:7205/api";
+	"https://hr-management-server-5q1i.onrender.com/api";
 
 const instance = axios.create({
 	baseURL: Base_Url,
